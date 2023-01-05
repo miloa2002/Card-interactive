@@ -1,9 +1,11 @@
 import cardFront from '../images/bg-card-front.png'
+import cardBack from '../images/bg-card-back.png'
 import cardLogo from '../images/card-logo.svg'
 
-const Cards = () => {
+const Cards = ({nombre, numeroTarjeta, mes, year, cvc}) => {
     return (
-        <div className="bg-card-front">
+       <div className='cards'>
+         <div className="bg-card-front">
             <img
                 src={cardFront}
                 alt="card front"
@@ -17,14 +19,26 @@ const Cards = () => {
                     />
                 </div>
                 <div className="text-card-2">
-                    <h2 className='numberPrincipal'>0000 0000 0000 0000</h2>
+                    <h2 className='numberPrincipal'>{numeroTarjeta}</h2>
                     <div className="text-flex">
-                        <p>Jannt Tapias</p>
-                        <p>00/00</p>
+                        <p>{nombre}</p>
+                        <p>{mes}/{year}</p>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div className='card-back'>
+            <img
+            src={cardBack}
+            alt="card back" 
+            className='bg-card-back'
+            />
+            <div className="back-contenido">
+                <p>{cvc}</p>
+            </div>
+        </div>
+       </div>
     )
 }
 
