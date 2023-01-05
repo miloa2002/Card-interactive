@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --coloresLabel: hsl(279, 6%, 55%);
+  --coloresInput: hsl(270, 3%, 87%);
+  --boton: hsl(278, 68%, 11%);
+}
+.container {
+  max-width: 120rem;
+  width: 90%;
+  margin: 0 auto;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+body {
+  font-size: 1.6rem;
+  font-family: "Space Grotesk", sans-serif;
+}
+.contenedor-flex {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 4rem 0;
+}
+@media (min-width: 768px) {
+  .contenedor-flex {
+    padding: 0;
+  }
+}
+@media (min-width: 768px) {
+  .contenedor-flex {
+    flex-direction: row;
+  }
+}
+.front-img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+/*********formulario***/
+.formulario {
+  width: auto;
+  height: auto;
+  padding: 2rem;
+}
+.formulario label {
+  color: var(--coloresLabel);
+  text-transform: uppercase;
+}
+.formulario input {
+  display: block;
+  width: 100%;
+  outline: 0;
+  height: 4rem;
+  margin: 2rem 0;
+  padding-left: 1rem;
+  border: 1px solid var(--coloresInput);
+}
+.formulario input::placeholder {
+  color: var(--coloresInput);
+}
+.formulario .btn-enviar {
+  background-color: var(--boton);
+  color: var(--coloresInput);
+  border-radius: 5px;
+  height: 6rem;
+  width: 102%;
+  padding: 0;
+  border: 0;
+}
+.btn-enviar:hover {
+  cursor: pointer;
+  background-color: hsl(278, 69%, 19%);
+}
+.campo-flex-1 {
+  display: flex;
+  gap: 0.5rem;
+}
+.campo-flex {
+  display: flex;
+  gap: 2rem;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.bg-main {
+  background-image: url(./images/bg-main-mobile.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  height: 30%;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .bg-main {
+    background-image: url(./images/bg-main-desktop.png);
+    position: absolute;
+    height: 100vh;
+    width: 30%;
+  }
+}
+
+/*card**/
+.bg-card-front {
+  position: relative;
+  color: #fff;
+}
+.text-card {
+  position: absolute;
+  top: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%;
+  width: 90%;
+}
+.text-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.numberPrincipal {
+  margin-bottom: 2rem;
+}
