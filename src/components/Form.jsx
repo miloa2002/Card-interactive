@@ -1,13 +1,63 @@
+import { useState, useEffect } from "react";
+import Mensaje from "./Mensaje";
+import Thankyou from "./Thankyou";
+
 const Form = ({
-    nombre, setNombre,
-    numeroTarjeta, setNumeroTarjeta,
-    mes, setMes,
-    year, setYear,
-    cvc, setCvc
+  nombre, setNombre,
+  numeroTarjeta, setNumeroTarjeta,
+  mes, setMes,
+  year, setYear,
+  cvc, setCvc,
+  datos, setDatos
 }) => {
 
+  const [error, setError] = useState(false)
+  const [gracias, setGracias] = useState(false)
+
+  useEffect(()=>{
+    if(Object.keys(nombre).length > 0){
+      setNombre(usuario.nombre)
+      setNumeroTarjeta(usuario.numeroTarjeta)
+      setMes(usuario.mes)
+      setYear(usuario.year)
+      setCvc(usuario.cvc)
+    }
+  }, [datos])
+  
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    if([nombre, numeroTarjeta, mes, year, cvc].includes("")){
+      setError(true)
+      return
+    }
+    setError(false)
+    const datosForm={
+      nombre,
+      numeroTarjeta,
+      mes,
+      year,
+      cvc
+    }
+
+    setDatos([...datos, datosForm]);
+
+    setNombre("")
+    setNumeroTarjeta("")
+    setMes("")
+    setYear("")
+    setCvc("")
+
+    setGracias(true)
+  }
+
+
   return (
-    <form className="formulario">
+    <div>
+      {gracias ? <Thankyou /> : (
+        <form 
+      onSubmit={handleSubmit}
+      className="formulario">
+      {error && <Mensaje alerta="Todos los campos son obligatorios"/>}
 
       <label htmlFor="nombre">Nombre Propietario</label>
       <input 
@@ -61,8 +111,9 @@ const Form = ({
         type="submit"  
         value="Confirm"
         />
-
     </form>
+      )}
+    </div>
   )
 }
 

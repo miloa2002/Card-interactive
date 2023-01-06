@@ -10,6 +10,7 @@ function App() {
   const [mes, setMes] = useState(0)
   const [year, setYear] = useState(0)
   const [cvc, setCvc] = useState(0)
+  const [datos, setDatos] = useState("")
 
   return (
     <>
@@ -26,7 +27,7 @@ function App() {
           nombre={nombre}
           setNombre={setNombre}
 
-          numeroTarejta={numeroTarjeta}
+          numeroTarjeta={numeroTarjeta}
           setNumeroTarjeta={setNumeroTarjeta}
 
           mes={mes}
@@ -37,6 +38,9 @@ function App() {
 
           cvc = {cvc}
           setCvc = {setCvc}
+
+          datos = {datos}
+          setDatos = {setDatos}
 
         />
       </div>
